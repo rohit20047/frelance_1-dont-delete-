@@ -7,6 +7,8 @@ const dots = document.querySelectorAll('.dot');
 let currentIndex = 0;
 const totalSlides = dots.length;
 
+
+
 // Function to update the slider position and dot styles
 function updateSlider(index) {
   slider.style.transform = `translateX(-${index * 100}%)`;

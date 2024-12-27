@@ -672,6 +672,11 @@ column-gap: 20px;
   color: #b3a9a9;
   margin-bottom: 10px;
 }
+.contact-info p img {
+  margin-right: 8px; /* Adjust the value as needed */
+  vertical-align: middle; /* Ensures the icon aligns nicely with the text */
+  width : 22px;
+}
 
 .contact-form {
   flex-basis: 50%;
@@ -694,7 +699,7 @@ column-gap: 20px;
 }
 
 .form-group input {
- width:100%;
+  flex-basis: 48%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;

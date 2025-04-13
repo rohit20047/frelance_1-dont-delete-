@@ -94,3 +94,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
+const slidesContainer = document.querySelector('.carousel .slides');
+const slides = document.querySelectorAll('.carousel .slides img');
+const prevBtn = document.querySelector('.carousel .prev');
+const nextBtn = document.querySelector('.carousel .next');
+
+let currentIndex1 = 0;
+const totalSlides1 = slides.length;
+
+// Function to move to a specific slide index
+function showSlide(index) {
+  // Handle index boundaries
+  if (index < 0) index = totalSlides1 - 1;
+  if (index >= totalSlides1) index = 0;
+  
+  // Move slide container by 100% per slide
+  slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+  currentIndex1 = index;
+}
+
+// Event listeners for arrows
+nextBtn.addEventListener('click', function() {
+  showSlide(currentIndex1 + 1);
+});
+
+prevBtn.addEventListener('click', function() {
+  showSlide(currentIndex1 - 1);
+});
+
+// Auto-sliding functionality
+function startAutoSlide() {
+  return setInterval(function() {
+    showSlide(currentIndex1 + 1);
+  }, 3000); // Change slide every 3 seconds
+}
+
+// Start auto sliding
+let autoSlideInterval1 = startAutoSlide();
+
+// Pause auto sliding when interacting with controls
+prevBtn.addEventListener('click', function() {
+  clearInterval(autoSlideInterval1);
+  autoSlideInterval1 = startAutoSlide();
+});
+
+nextBtn.addEventListener('click', function() {
+  clearInterval(autoSlideInterval1);
+  autoSlideInterval1 = startAutoSlide();
+});
+
+// Initialize with first slide
+showSlide(0);
